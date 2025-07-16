@@ -9,11 +9,7 @@ A Progressive Web App (PWA) for a fictional Tech Conference. Built with HTML, CS
 - Multi-page architecture (index, about, schedule, etc.)
 
 ## 🔗 Live Demo
-[Click here to view](https://vishalnathv.github.io/tech-conference-2025)
-
-## 📁 Source Code
-[GitHub Repo](https://github.com/vishalnathv/tech-conference-2025)
-
+[Click here to view](https://github.com/vishalvi-05/PWA-project.git)
 
 ## How to Use
 Clone the repo and open `index.html` in a browser.
