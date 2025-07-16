@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Conference</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/CSS/style.css" />
+
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="/PWA/manifest.webmanifest" />
+
+    <!-- Theme color for address bar -->
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Add favicon if available -->
+    <link rel="icon" href="/icons/icon-192.png" type="image/png" />
+</head>
+
+<body>
+    <header>
+        <h1>Tech Conference 2025</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="speakers.html">Speakers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero">
+            <h2>Welcome to the Future of Tech</h2>
+            <p>Discover new innovations, ideas and connect with experts. Experience the new technology era.</p>
+            <a href="register.html" class="cta-button">Register Now</a>
+        </section>
+
+        <!-- Highlights section -->
+        <section class="highlights">
+            <h3>Conference Highlights</h3>
+            <ul>
+                <li>Keynotes from industry experts</li>
+                <li>Learn Web Development</li>
+                <li>Global Networking</li>
+                <li>Progressive Web Apps</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tech Conference | All Rights Reserved</p>
+    </footer>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./PWA/sw.js')
+                    .then(reg => console.log('Service Worker Registered!', reg.scope))
+                    .catch(err => console.error('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+
+</html>

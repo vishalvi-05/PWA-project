@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration</title>
+  <link rel="stylesheet" href="CSS/register.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Registration for Tech Conference 2025</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Secure Your Spot</h2>
+      <p>Please fill out the form below to register for the conference.</p>
+
+      <form id="registrationForm">
+        <label for="name">Full Name:</label><br />
+        <input type="text" id="name" name="name" placeholder="Enter your name" required /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" placeholder="Enter your email" required /><br /><br />
+
+        <label for="phone">Phone Number:</label><br />
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required /><br /><br />
+
+        <button type="submit">Submit Registration</button>
+      </form>
+
+      <!-- Success message (initially hidden) -->
+      <p id="success-msg" style="display: none; color: green; font-weight: bold; text-align: center;">
+        ✅ Registration successful! We'll be in touch soon.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tech Conference | All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript to handle fake form submission -->
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // Stop real form submission
+
+      // Optional: Validate fields manually (already using `required`)
+
+      // Hide form and show success message
+      this.style.display = "none";
+      document.getElementById("success-msg").style.display = "block";
+    });
+  </script>
+</body>
+
+</html>

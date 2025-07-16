@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Tech Conference 2025</title>
+  <link rel="stylesheet" href="CSS/contact.css" />
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>We'd love to hear from you!</h2>
+      <form id="contact-form">
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" placeholder="Your full name" required /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" placeholder="Your email address" required /><br /><br />
+
+        <label for="message">Message:</label><br />
+        <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea><br /><br />
+
+        <button type="submit">Send Message</button>
+        <p id="confirmation-msg" style="display: none; color: green; font-weight: bold; text-align: center; margin-top: 15px;">
+          ✅ Message sent successfully!
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tech Conference | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const msg = document.getElementById('confirmation-msg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      msg.style.display = 'block';
+      form.reset();
+
+      // Redirect to home after 2 seconds
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
