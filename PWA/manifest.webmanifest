@@ -9,13 +9,13 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "https://picsum.photos/200/300",
+      "href": "https://picsum.photos/200/300",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://github.com/vishalvi-05/PWA-project/blob/main/icons/icon-512.png",
+      "href": "https://github.com/vishalvi-05/PWA-project/blob/main/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -23,7 +23,7 @@
   ],
   "screenshots": [
     {
-        "src":"https://github.com/vishalvi-05/PWA-project/blob/main/screenshots/conference_home.png",
+        "href":"https://github.com/vishalvi-05/PWA-project/blob/main/screenshots/conference_home.png",
         "sizes":"1280x720",
         "type":"image/png",
         "form_factor":"wide"
