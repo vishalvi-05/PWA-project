@@ -1,49 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Speakers - Tech Conference 2025</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your Custom CSS -->
   <link rel="stylesheet" href="CSS/speakers.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="icons/technology.png" type="image/png" />
 </head>
+
 <body>
-  <header>
+
+  <!-- Header -->
+  <header class="bg-primary text-white text-center py-4 rounded-bottom">
     <h1>Meet Our Speakers</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-        <li><a href="speakers.html" aria-current="page">Speakers</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main>
-    <section class="speakers">
-      <article>
-        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Photo of Dr. Chandi" class="speaker-img" />
-        <h2>Dr. Chandi</h2>
-        <p>Leading AI researcher at Google, focused on ethical AI and machine learning.</p>
+  <!-- Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">TechConf</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="schedule.html">Schedule</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="speakers.html">Speakers</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    <section class="speakers row g-4">
+      <article class="col-md-4">
+        <div class="card text-center h-100 p-3">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Dr. Chandi" class="speaker-img mx-auto" />
+          <h2 class="mt-3">Dr. Chandi</h2>
+          <p>Leading AI researcher at Google, focused on ethical AI and machine learning.</p>
+        </div>
       </article>
 
-      <article>
-        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Photo of Dr. Prathap Mathews" class="speaker-img" />
-        <h2>Dr. Prathap Mathews</h2>
-        <p>CTO at WebForge, expert in open-source cloud platforms and DevOps culture.</p>
+      <article class="col-md-4">
+        <div class="card text-center h-100 p-3">
+          <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Dr. Prathap Mathews"
+            class="speaker-img mx-auto" />
+          <h2 class="mt-3">Dr. Prathap Mathews</h2>
+          <p>CTO at WebForge, expert in open-source cloud platforms and DevOps culture.</p>
+        </div>
       </article>
 
-      <article>
-        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Photo of Dr. Steven Samuel" class="speaker-img" />
-        <h2>Dr. Steven Samuel</h2>
-        <p>Full-stack developer and founder of a DeFi startup, passionate about web development.</p>
+      <article class="col-md-4">
+        <div class="card text-center h-100 p-3">
+          <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Dr. Steven Samuel"
+            class="speaker-img mx-auto" />
+          <h2 class="mt-3">Dr. Steven Samuel</h2>
+          <p>Full-stack developer and founder of a DeFi startup, passionate about web development.</p>
+        </div>
       </article>
     </section>
   </main>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="text-center text-white bg-primary py-3 rounded-top">
     <p>&copy; 2025 Tech Conference | All Rights Reserved</p>
   </footer>
+
+  <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

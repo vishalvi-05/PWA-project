@@ -5,56 +5,88 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registration</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Page CSS -->
   <link rel="stylesheet" href="CSS/register.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="icons/technology.png" type="image/png" />
 </head>
 
 <body>
-  <header>
-    <h1>Registration for Tech Conference 2025</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
+  <!-- Responsive Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TechConf</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="schedule.html">Schedule</a></li>
+          <li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="register.html">Register</a></li>
+
+          <!-- Mobile-only links -->
+          <li>
+            <hr class="dropdown-divider d-lg-none" />
+          </li>
+          <li class="nav-item d-lg-none"><a class="nav-link" href="#">Support</a></li>
+          <li class="nav-item d-lg-none"><span class="nav-link disabled">Version 1.0</span></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-4">
     <section>
       <h2>Secure Your Spot</h2>
       <p>Please fill out the form below to register for the conference.</p>
 
       <form id="registrationForm">
-        <label for="name">Full Name:</label><br />
-        <input type="text" id="name" name="name" placeholder="Enter your name" required /><br /><br />
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required />
+        </div>
 
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" placeholder="Enter your email" required /><br /><br />
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required />
+        </div>
 
-        <label for="phone">Phone Number:</label><br />
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required /><br /><br />
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number:</label>
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number"
+            required />
+        </div>
 
-        <button type="submit">Submit Registration</button>
+        <button type="submit" class="btn btn-success">Submit Registration</button>
       </form>
 
-      <!-- Success message (initially hidden) -->
-      <p id="success-msg" style="display: none; color: green; font-weight: bold; text-align: center;">
+      <!-- Success message -->
+      <p id="success-msg" style="display: none; color: green; font-weight: bold; text-align: center;" class="mt-4">
         ✅ Registration successful! We'll be in touch soon.
       </p>
     </section>
   </main>
 
-  <footer>
+  <footer class="text-center mt-5 mb-3">
     <p>&copy; 2025 Tech Conference | All Rights Reserved</p>
   </footer>
 
-  <!-- JavaScript to handle fake form submission -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Fake form submission -->
   <script>
     document.getElementById("registrationForm").addEventListener("submit", function (e) {
-      e.preventDefault(); // Stop real form submission
-
-      // Optional: Validate fields manually (already using `required`)
-
-      // Hide form and show success message
+      e.preventDefault();
       this.style.display = "none";
       document.getElementById("success-msg").style.display = "block";
     });

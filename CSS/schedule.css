@@ -1,4 +1,4 @@
-/* Reset defaults */
+/* Reset Defaults */
 * {
     margin: 0;
     padding: 0;
@@ -14,47 +14,26 @@ body {
     padding: 20px;
 }
 
-/* Header Styling */
-header {
-    background-color: #4b79a1;
-    color: black;
-    padding: 20px 0;
-    text-align: center;
-    border-radius: 10px 10px 0 0;
+/* FORCE Bootstrap Navbar to full-strength blue + white text */
+.navbar.bg-primary {
+    background-color: #0073e6 !important;
+    gap: 20px;
+    
 }
 
-header h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    gap: 20px;
 }
 
-/* Navigation Styling */
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    background-color: #3b6391;
-    padding: 10px 0;
-    flex-wrap: wrap;
-}
-
-nav li {
-    margin: 0 15px;
-}
-
-nav a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    display: inline-block;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav a:hover,
-nav a[aria-current="page"] {
-    border-radius: 5px;
-    color: black;
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #0073e6 !important;
+    background-color: #ffffff !important;
+    border-radius: 0.25rem;
+    gap: 20px;
 }
 
 /* Main Content Styling */
@@ -62,9 +41,9 @@ main {
     max-width: 900px;
     margin: 30px auto;
     padding: 30px;
-    background-color: white;
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 
 /* Section Styling */
@@ -72,7 +51,6 @@ section {
     margin-bottom: 40px;
 }
 
-/* Headings */
 h2 {
     color: #4b79a1;
     margin-bottom: 15px;
@@ -82,12 +60,12 @@ h2 {
 }
 
 /* Schedule List */
-ul {
+main ul {
     list-style: none;
     padding-left: 0;
 }
 
-ul li {
+main ul li {
     margin-bottom: 12px;
     padding: 12px 15px;
     background-color: #f0f4f8;
@@ -102,18 +80,13 @@ footer {
     padding: 15px 0;
     margin-top: 50px;
     background-color: #4b79a1;
-    color: white;
+    color: #ffffff;
     border-radius: 0 0 10px 10px;
     font-size: 0.9rem;
 }
 
 /* Responsive Layout */
 @media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     main {
         padding: 20px;
         margin: 20px;
@@ -123,7 +96,7 @@ footer {
         font-size: 1.3rem;
     }
 
-    ul li {
+    main ul li {
         font-size: 0.95rem;
     }
 }

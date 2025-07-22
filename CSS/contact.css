@@ -54,7 +54,7 @@ nav a {
 
 nav a:hover,
 nav a[aria-current="page"] {
-  background-color: #004a94;
+  background-color: green;
   border-radius: 5px;
 }
 

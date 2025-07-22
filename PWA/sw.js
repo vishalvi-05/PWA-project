@@ -2,25 +2,25 @@ const CACHE_NAME = 'techconf-cache-v1';
 
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/about.html',
-  '/register.html',
-  '/schedule.html',
-  '/speakers.html',
-  '/contact.html',
+  // '/index.html',
+  // '/about.html',
+  // '/register.html',
+  // '/schedule.html',
+  // '/speakers.html',
+  // '/contact.html',
 
-  '/style.css',
-  '/about.css',
-  '/register.css',
-  '/schedule.css',
-  '/speakers.css',
-  '/contact.css',
+  // '/style.css',
+  // '/about.css',
+  // '/register.css',
+  // '/schedule.css',
+  // '/speakers.css',
+  // '/contact.css',
 
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  // '/icons/icon-192.png',
+  // '/icons/icon-512.png',
 
-  '/PWA',
-  '/manifest.webmanifest'
+  // '/PWA',
+  // '/manifest.webmanifest'
 ];
 
 // Install Event - Cache app shell
