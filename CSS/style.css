@@ -51,7 +51,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #295176;
+    background-color: black;
     color: #ffffff;
 }
 
@@ -105,7 +105,7 @@ nav a[aria-current="page"] {
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     max-width: 700px;
-    margin: 40px auto; /* Center horizontally with some spacing */
+    margin: 40px auto; /* Center horizontally with spacing */
 }
 
 .highlights h3 {
@@ -115,18 +115,28 @@ nav a[aria-current="page"] {
 }
 
 .highlights ul {
-    list-style-type: disc;
-    list-style-position: inside;
-    text-align: left;
-    margin: 0 auto;
-    max-width: 500px;
+    list-style-type: none;
     padding: 0;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .highlights li {
     margin-bottom: 12px;
     font-size: 1.1rem;
     line-height: 1.6;
+    position: relative;
+    padding-left: 20px;
+    display: inline-block;
+    text-align: left;
+    width: auto;
+}
+
+.highlights li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #333;
 }
 
 /* Footer styling */
@@ -152,5 +162,10 @@ footer {
 
     .highlights ul {
         padding: 0 10px;
+    }
+
+    .highlights li {
+        display: block;
+        width: 100%;
     }
 }
