@@ -1,4 +1,4 @@
-/* Reset defaults */
+/* Reset default styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,156 +8,124 @@
 /* Body styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #eef6ff;
+  background-color: #eaf9fc;
   color: #333;
   line-height: 1.6;
-  padding: 20px;
+  padding-top: 70px;
+  /* Reserve space for fixed navbar */
 }
 
-/* Header */
-header {
-  background-color: #0056b3;
-  color: white;
-  text-align: center;
-  padding: 25px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0 0 10px 10px;
+/* Fixed Navbar (same as index.html) */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #0a84ff !important;
+  /* Consistent navbar color */
+  padding: 12px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+/* Navbar brand */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff !important;
 }
 
-/* Navigation */
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  background-color: #003d80;
-  padding: 10px 0;
-}
-
-nav li {
-  margin: 0 15px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-
-nav a:hover,
-nav a[aria-current="page"] {
-  background-color: #002d66;
-}
-
-/* Main container */
-main {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-}
-
-/* Heading & paragraph */
-main h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #0056b3;
-  font-size: 1.8rem;
-}
-
-main p {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #666;
-}
-
-/* Form styling */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
+/* Navbar links */
+.nav-link {
   font-weight: 600;
-  margin-bottom: 6px;
+  color: #fff !important;
+  opacity: 0.95;
+  margin-left: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  opacity: 1;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Hamburger icon */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Main registration section */
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Form labels and inputs */
+form .form-label {
+  font-weight: 600;
   color: #333;
 }
 
-input {
-  padding: 12px;
-  font-size: 1rem;
-  margin-bottom: 20px;
+form .form-control {
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-input:focus {
-  border-color: #0056b3;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
-}
-
-/* Submit button */
-button {
-  background-color: #0056b3;
-  color: white;
-  padding: 12px;
+  padding: 10px;
   font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-  background-color: #00408a;
-  transform: scale(1.02);
+form button[type="submit"] {
+  margin-top: 10px;
+  background-color: #198754;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 10px 24px;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+form button[type="submit"]:hover {
+  background-color: #157347;
 }
 
 /* Success message */
 #success-msg {
-  text-align: center;
   margin-top: 20px;
+  color: green;
   font-weight: bold;
   font-size: 1.1rem;
-  color: #28a745;
-  background-color: #e6f9ec;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #c2e7c9;
-}
-
-/* Footer */
-footer {
   text-align: center;
-  margin-top: 50px;
-  padding: 20px 0;
-  background-color: #0056b3;
-  color: white;
-  border-radius: 10px;
-  font-size: 0.9rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
+/* Make footer stick to bottom */
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-  main {
-    margin: 20px;
-    padding: 20px;
-  }
+/* Allow main content to take up available space */
+main {
+  flex: 1;
+}
+
+/* Footer style (dark, sticky at bottom) */
+footer {
+  background-color: #08162c;
+  color: #ccc;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.95rem;
+  border-radius: 0;
+  margin: 0;
 }

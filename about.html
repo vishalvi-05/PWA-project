@@ -17,34 +17,30 @@
 
 <body>
 
-  <!-- Bootstrap Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">TechConf</a>
+  <!-- Uniform Sticky Navbar (same as index.html) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">TechConf</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto gap-3">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active fw-bold" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="schedule.html">Schedule</a></li>
           <li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-
-          <!-- Optional mobile-only extras -->
+          <li class="nav-item d-lg-none"><span class="nav-link disabled">Version 2.0</span></li>
           <li>
-            <hr class="dropdown-divider d-lg-none">
+            <hr class="dropdown-divider d-lg-none" />
           </li>
-          <li class="nav-item d-lg-none"><a class="nav-link" href="#">FAQ</a></li>
-          <li class="nav-item d-lg-none"><a class="nav-link" href="#">Support</a></li>
-          <li class="nav-item d-lg-none"><span class="nav-link disabled">Version 1.0</span></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <main class="container mt-4">
+  <main class="container mt-5 mb-5">
     <section>
       <h2>Our Vision</h2>
       <p>
@@ -64,8 +60,8 @@
     </section>
   </main>
 
-  <footer class="text-center mt-5 mb-3">
-    <p>&copy; 2025 Tech Conference | All Rights Reserved</p>
+  <footer class="text-center bg-dark text-white py-3 mt-auto">
+    <p class="mb-0">&copy; 2025 Tech Conference | All Rights Reserved</p>
   </footer>
 
   <!-- Bootstrap JS Bundle -->
