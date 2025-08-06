@@ -83,27 +83,23 @@
     });
   </script>
 
+  <!-- Speaker Cards via API Script -->
   <script>
-    const speakerContainer = document.getElementById("speakerCards");
-
-    // Use specific user IDs to maintain fixed speaker info
-    const userIds = [1, 5, 10]; // You can change these IDs if needed
+    const speakerContainer = document.getElementById("speakers-container");
+    const userIds = [1, 5, 10]; // Fixed user IDs to maintain consistency
 
     async function fetchSpeakerData(userId) {
       try {
-        // 1. Fetch user data
         const userRes = await fetch(`https://dummyjson.com/users/${userId}`);
         const user = await userRes.json();
 
-        const gender = user.gender.toLowerCase(); // "male" or "female"
-        const seed = `user-${userId}`; // Seed to lock image identity
+        const gender = user.gender.toLowerCase();
+        const seed = `user-${userId}`;
 
-        // 2. Fetch corresponding image from randomuser API
         const imageRes = await fetch(`https://randomuser.me/api/?gender=${gender}&seed=${seed}`);
         const imageData = await imageRes.json();
         const imageUrl = imageData.results[0].picture.large;
 
-        // 3. Create speaker card
         const speakerCard = document.createElement("div");
         speakerCard.classList.add("col-md-4", "mb-4");
 
@@ -115,20 +111,15 @@
         </div>
       `;
 
-        // 4. Append to container
         speakerContainer.appendChild(speakerCard);
-
       } catch (error) {
         console.error("Error fetching speaker data:", error);
+        speakerContainer.innerHTML = `<p class="text-danger text-center">Failed to load speaker data.</p>`;
       }
     }
 
-    // Loop through fixed users and fetch data
-    userIds.forEach(id => {
-      fetchSpeakerData(id);
-    });
+    userIds.forEach(id => fetchSpeakerData(id));
   </script>
-
 
 </body>
 
