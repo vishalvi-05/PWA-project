@@ -1,216 +1,144 @@
-/* Reset default styles */
-* {
+/* === Reset & Layout Fix === */
+html,
+body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Base styling */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #e6f7fa;
-  color: #212529;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Navbar uniform styling */
-.navbar {
-  font-weight: 600;
-  letter-spacing: 0.4px;
+main {
+  flex: 1;
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 12px 0;
+/* === Navbar Link Spacing (Desktop) === */
+.navbar-nav .nav-item .nav-link {
+  padding: 0.5rem 1rem;
+  font-weight: 500;
 }
 
-.navbar-nav {
+/* === Offscreen Menu (Mobile) === */
+#offscreen-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #0a192f;
+  padding: 2rem 1.5rem;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1050;
+  transition: right 0.3s ease-in-out;
   display: flex;
-  align-items: center;
-  gap: 0.75rem; /* Consistent spacing */
-  margin-left: auto;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.navbar-nav .nav-item {
-  margin: 0;
+#offscreen-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
-.navbar-nav .nav-link {
-  color: #fff !important;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.5rem 0.75rem;
-  transition: all 0.2s ease-in-out;
+#offscreen-menu.active {
+  right: 0;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: #e6f0ff !important;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+/* === Backdrop === */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1040;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
 }
 
-/* Main Content Container */
-main.container {
-  max-width: 890px;
-  margin: 0 auto;
-  padding: 40px 24px 0 24px;
+.backdrop.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Hero Section */
+/* === Hero Section === */
 .hero {
   text-align: center;
-  background: linear-gradient(90deg, #0083b0 0%, #00b4db 100%);
-  color: #fff;
-  padding: 72px 24px 48px 24px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
-  margin-bottom: 2.5rem;
-  position: relative;
-  overflow: hidden;
+  padding: 3rem 1rem;
+  background: #f0f4ff;
+  border-radius: 8px;
 }
 
 .hero h2 {
-  font-size: 2.7rem;
-  line-height: 1.2;
-  font-weight: 800;
-  margin-bottom: 18px;
-  letter-spacing: 1.5px;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.25rem;
-  margin-bottom: 32px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0.95;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 
 .cta-button {
   display: inline-block;
-  background-color: #fff;
-  color: #0083b0;
-  padding: 14px 32px;
-  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
-  transition: background-color 0.25s, color 0.25s, transform 0.2s;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #e0e0e0;
-  color: #005f91;
-  transform: translateY(-2px) scale(1.05);
+  background-color: #0056b3;
 }
 
-/* Highlights Section */
+/* === Highlights Section === */
 .highlights {
-  padding: 48px 28px 34px 28px;
-  background-color: #fff;
-  border-radius: 14px;
-  text-align: center;
-  box-shadow: 0 2px 16px rgba(10, 25, 47, 0.05);
+  margin: 3rem auto;
+  /* Top spacing + horizontal centering */
   max-width: 700px;
-  margin: 0 auto 55px auto;
-  position: relative;
+  /* Adjust for wider displays */
+  padding: 0 1rem;
+  /* Side spacing for mobile devices */
+  text-align: center;
+  /* Center text inside */
+}
+
+.highlights h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .highlights ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 14px;
-  padding: 0;
+  list-style-type: disc;
+  text-align: left;
+  /* Left-align bullets for clarity */
+  padding-left: 1.5rem;
+  display: inline-block;
+  /* Keeps list in center zone */
   margin: 0 auto;
-  max-width: 480px;
 }
 
-.highlights li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.13rem;
-  line-height: 1.7;
+.highlights ul li {
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
 }
 
-.highlights li::before {
-  content: "★";
-  color: #00b4db;
-  font-size: 1.23em;
-  margin-right: 9px;
-}
-
-/* Headings */
-.highlights h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: #0083b0;
-  letter-spacing: 0.5px;
-}
-
-/* Footer styling */
+/* === Footer === */
 footer {
   background-color: #0a192f;
-  color: #fff;
+  color: white;
   text-align: center;
-  padding: 17px 0 15px 0;
+  padding: 1rem 0;
+  font-weight: 600;
   font-size: 1rem;
-  margin-top: auto;
-  letter-spacing: 0.8px;
-  border-radius: 7px 7px 0 0;
-  box-shadow: 0 -2px 12px rgba(10, 25, 47, 0.05);
-}
-
-/* Responsive Design */
-@media (max-width: 900px) {
-  main.container {
-    max-width: 99vw;
-    padding: 30px 8vw;
-  }
-  .highlights,
-  .hero {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  main.container {
-    padding: 18px 3vw 0 3vw;
-  }
-  .hero {
-    padding: 38px 10px 25px 10px;
-    border-radius: 8px;
-  }
-  .hero h2 {
-    font-size: 1.6rem;
-  }
-  .cta-button {
-    padding: 11px 18px;
-    font-size: 0.99rem;
-  }
-  .highlights {
-    padding: 22px 4vw 20px 4vw;
-    border-radius: 8px;
-    margin-bottom: 28px;
-  }
-  .highlights h3 {
-    font-size: 1.33rem;
-  }
-  .highlights li {
-    font-size: 1rem;
-  }
-  footer {
-    font-size: 0.87rem;
-    margin-top: 25px;
-    border-radius: 5px 5px 0 0;
-  }
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
 }

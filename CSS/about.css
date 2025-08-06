@@ -32,12 +32,14 @@ body {
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* Uniform spacing between links */
+  gap: 0.75rem;
+  /* Uniform spacing between links */
   margin-left: auto;
 }
 
 .navbar-nav .nav-item {
-  margin: 0; /* Remove any default margin */
+  margin: 0;
+  /* Remove any default margin */
 }
 
 .navbar-nav .nav-link {
@@ -124,7 +126,8 @@ footer {
     font-size: 1.5rem;
   }
 
-  p, li {
+  p,
+  li {
     font-size: 1rem;
   }
 }
