@@ -83,42 +83,65 @@
     });
   </script>
 
-  <!-- Speaker Cards via API Script -->
   <script>
-    const speakerContainer = document.getElementById("speakers-container");
-    const userIds = [1, 5, 10]; // Fixed user IDs to maintain consistency
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("speakers-container");
 
-    async function fetchSpeakerData(userId) {
-      try {
-        const userRes = await fetch(`https://dummyjson.com/users/${userId}`);
-        const user = await userRes.json();
+      // Fetch user data from dummyjson
+      fetch("https://dummyjson.com/users?limit=3")
+        .then((res) => res.json())
+        .then((dummyData) => {
+          const users = dummyData.users;
 
-        const gender = user.gender.toLowerCase();
-        const seed = `user-${userId}`;
+          // Group by gender
+          const maleCount = users.filter(user => user.gender === 'male').length;
+          const femaleCount = users.length - maleCount;
 
-        const imageRes = await fetch(`https://randomuser.me/api/?gender=${gender}&seed=${seed}`);
-        const imageData = await imageRes.json();
-        const imageUrl = imageData.results[0].picture.large;
+          // Fetch images separately by gender
+          const maleImagesPromise = fetch(`https://randomuser.me/api/?results=${maleCount}&gender=male`);
+          const femaleImagesPromise = fetch(`https://randomuser.me/api/?results=${femaleCount}&gender=female`);
 
-        const speakerCard = document.createElement("div");
-        speakerCard.classList.add("col-md-4", "mb-4");
+          Promise.all([maleImagesPromise, femaleImagesPromise])
+            .then(async ([maleRes, femaleRes]) => {
+              const maleData = await maleRes.json();
+              const femaleData = await femaleRes.json();
 
-        speakerCard.innerHTML = `
-        <div class="card shadow-sm h-100 text-center p-3">
-          <img src="${imageUrl}" alt="${user.firstName}" class="img-fluid rounded-circle mx-auto mb-3" style="width: 120px; height: 120px; object-fit: cover;">
-          <h5 class="fw-bold">${user.firstName} ${user.lastName}</h5>
-          <p class="text-muted">${user.company.title} at ${user.company.name}</p>
-        </div>
-      `;
+              const maleImages = maleData.results;
+              const femaleImages = femaleData.results;
 
-        speakerContainer.appendChild(speakerCard);
-      } catch (error) {
-        console.error("Error fetching speaker data:", error);
-        speakerContainer.innerHTML = `<p class="text-danger text-center">Failed to load speaker data.</p>`;
-      }
-    }
+              let maleIndex = 0;
+              let femaleIndex = 0;
 
-    userIds.forEach(id => fetchSpeakerData(id));
+              users.forEach(user => {
+                // Assign gender-appropriate image
+                let imageUrl = '';
+                if (user.gender === 'male') {
+                  imageUrl = maleImages[maleIndex++].picture.large;
+                } else {
+                  imageUrl = femaleImages[femaleIndex++].picture.large;
+                }
+
+                // Create and insert card
+                const card = document.createElement("div");
+                card.className = "col-md-4";
+                card.innerHTML = `
+                <div class="card text-center p-4 h-100 shadow-sm">
+                  <div class="speaker-img-wrapper mx-auto mb-3">
+                    <img src="${imageUrl}" alt="${user.firstName}" class="speaker-img" />
+                  </div>
+                  <h5 class="fw-bold">${user.firstName} ${user.lastName}</h5>
+                  <p class="text-muted">${user.company.title} at ${user.company.name}</p>
+                </div>
+              `;
+                container.appendChild(card);
+              });
+            });
+        })
+        .catch((err) => {
+          container.innerHTML = `<p class="text-danger text-center">Failed to load speaker data.</p>`;
+          console.error("Error fetching data:", err);
+        });
+    });
   </script>
 
 </body>
