@@ -94,37 +94,43 @@
         .then((dummyData) => {
           const users = dummyData.users;
 
-          // Fetch randomuser image data
-          fetch("https://randomuser.me/api/?results=3")
-            .then((res) => res.json())
-            .then((imageData) => {
-              const randomUsers = imageData.results;
+          users.forEach((user, index) => {
+            const gender = user.gender.toLowerCase(); // 'male' or 'female'
+            const seed = `speaker${index + 1}`; // unique seed to get same image every time
 
-              users.forEach((user, index) => {
-                const imageUrl = randomUsers[index].picture.large;
+            // Fetch image using gender and seed from randomuser API
+            fetch(`https://randomuser.me/api/?gender=${gender}&seed=${seed}`)
+              .then((res) => res.json())
+              .then((imageData) => {
+                const imageUrl = imageData.results[0].picture.large;
 
                 const card = document.createElement("div");
                 card.className = "col-md-4";
 
                 card.innerHTML = `
-              <div class="card text-center p-4 h-100 shadow-sm">
-                <div class="speaker-img-wrapper mx-auto mb-3">
-                  <img src="${imageUrl}" alt="${user.firstName}" class="speaker-img" />
+                <div class="card text-center p-4 h-100 shadow-sm">
+                  <div class="speaker-img-wrapper mx-auto mb-3">
+                    <img src="${imageUrl}" alt="${user.firstName}" class="speaker-img" />
+                  </div>
+                  <h5 class="fw-bold">${user.firstName} ${user.lastName}</h5>
+                  <p class="text-muted">${user.company.title} at ${user.company.name}</p>
                 </div>
-                <h5 class="fw-bold">${user.firstName} ${user.lastName}</h5>
-                <p class="text-muted">${user.company.title} at ${user.company.name}</p>
-              </div>
-            `;
+              `;
+
                 container.appendChild(card);
+              })
+              .catch((err) => {
+                console.error("Image API error:", err);
               });
-            });
+          });
         })
         .catch((err) => {
           container.innerHTML = `<p class="text-danger text-center">Failed to load speaker data.</p>`;
-          console.error("Error fetching data:", err);
+          console.error("User data API error:", err);
         });
     });
   </script>
+
 
 </body>
 
