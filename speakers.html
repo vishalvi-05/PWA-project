@@ -83,51 +83,49 @@
     });
   </script>
 
-  <!-- Speaker Cards via API -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const container = document.getElementById("speakers-container");
+    const speakerContainer = document.getElementById("speakerCards");
 
-      // Fetch dummyjson user data
-      fetch("https://dummyjson.com/users?limit=3")
-        .then((res) => res.json())
-        .then((dummyData) => {
-          const users = dummyData.users;
+    // Use specific user IDs to maintain fixed speaker info
+    const userIds = [1, 5, 10]; // You can change these IDs if needed
 
-          users.forEach((user, index) => {
-            const gender = user.gender.toLowerCase(); // 'male' or 'female'
-            const seed = `speaker${index + 1}`; // unique seed to get same image every time
+    async function fetchSpeakerData(userId) {
+      try {
+        // 1. Fetch user data
+        const userRes = await fetch(`https://dummyjson.com/users/${userId}`);
+        const user = await userRes.json();
 
-            // Fetch image using gender and seed from randomuser API
-            fetch(`https://randomuser.me/api/?gender=${gender}&seed=${seed}`)
-              .then((res) => res.json())
-              .then((imageData) => {
-                const imageUrl = imageData.results[0].picture.large;
+        const gender = user.gender.toLowerCase(); // "male" or "female"
+        const seed = `user-${userId}`; // Seed to lock image identity
 
-                const card = document.createElement("div");
-                card.className = "col-md-4";
+        // 2. Fetch corresponding image from randomuser API
+        const imageRes = await fetch(`https://randomuser.me/api/?gender=${gender}&seed=${seed}`);
+        const imageData = await imageRes.json();
+        const imageUrl = imageData.results[0].picture.large;
 
-                card.innerHTML = `
-                <div class="card text-center p-4 h-100 shadow-sm">
-                  <div class="speaker-img-wrapper mx-auto mb-3">
-                    <img src="${imageUrl}" alt="${user.firstName}" class="speaker-img" />
-                  </div>
-                  <h5 class="fw-bold">${user.firstName} ${user.lastName}</h5>
-                  <p class="text-muted">${user.company.title} at ${user.company.name}</p>
-                </div>
-              `;
+        // 3. Create speaker card
+        const speakerCard = document.createElement("div");
+        speakerCard.classList.add("col-md-4", "mb-4");
 
-                container.appendChild(card);
-              })
-              .catch((err) => {
-                console.error("Image API error:", err);
-              });
-          });
-        })
-        .catch((err) => {
-          container.innerHTML = `<p class="text-danger text-center">Failed to load speaker data.</p>`;
-          console.error("User data API error:", err);
-        });
+        speakerCard.innerHTML = `
+        <div class="card shadow-sm h-100 text-center p-3">
+          <img src="${imageUrl}" alt="${user.firstName}" class="img-fluid rounded-circle mx-auto mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+          <h5 class="fw-bold">${user.firstName} ${user.lastName}</h5>
+          <p class="text-muted">${user.company.title} at ${user.company.name}</p>
+        </div>
+      `;
+
+        // 4. Append to container
+        speakerContainer.appendChild(speakerCard);
+
+      } catch (error) {
+        console.error("Error fetching speaker data:", error);
+      }
+    }
+
+    // Loop through fixed users and fetch data
+    userIds.forEach(id => {
+      fetchSpeakerData(id);
     });
   </script>
 
