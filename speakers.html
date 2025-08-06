@@ -88,20 +88,25 @@
     document.addEventListener("DOMContentLoaded", () => {
       const container = document.getElementById("speakers-container");
 
+      // Fetch dummyjson user data
       fetch("https://dummyjson.com/users?limit=3")
         .then((res) => res.json())
-        .then((data) => {
-          const users = data.users;
-          const imageIndexes = [44, 33, 68];
-          const genders = ["women", "men", "women"];
+        .then((dummyData) => {
+          const users = dummyData.users;
 
-          users.forEach((user, index) => {
-            const card = document.createElement("div");
-            card.className = "col-md-4";
+          // Fetch randomuser image data
+          fetch("https://randomuser.me/api/?results=3")
+            .then((res) => res.json())
+            .then((imageData) => {
+              const randomUsers = imageData.results;
 
-            const imageUrl = `https://randomuser.me/api/portraits/${genders[index]}/${imageIndexes[index]}.jpg`;
+              users.forEach((user, index) => {
+                const imageUrl = randomUsers[index].picture.large;
 
-            card.innerHTML = `
+                const card = document.createElement("div");
+                card.className = "col-md-4";
+
+                card.innerHTML = `
               <div class="card text-center p-4 h-100 shadow-sm">
                 <div class="speaker-img-wrapper mx-auto mb-3">
                   <img src="${imageUrl}" alt="${user.firstName}" class="speaker-img" />
@@ -110,15 +115,17 @@
                 <p class="text-muted">${user.company.title} at ${user.company.name}</p>
               </div>
             `;
-            container.appendChild(card);
-          });
+                container.appendChild(card);
+              });
+            });
         })
         .catch((err) => {
           container.innerHTML = `<p class="text-danger text-center">Failed to load speaker data.</p>`;
-          console.error("Error fetching speaker data:", err);
+          console.error("Error fetching data:", err);
         });
     });
   </script>
+
 </body>
 
 </html>
